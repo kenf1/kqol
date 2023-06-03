@@ -1,6 +1,6 @@
 Package: kqol
 Title: K's R Quality of Life Improvements
-Version: 1.4.1
+Version: 1.0.0
 Authors@R: 
     person("K", "F", , "kenfv1@outlook.com", role = c("aut", "cre"),
            comment = c())
