@@ -1,0 +1,166 @@
+---
+#name: 
+surname: "First Last"
+#position: 
+#profilepic: 
+address:
+phone:
+www:
+email:
+#twitter: 
+github:
+#linkedin: 
+aboutme: "Sample about me"
+orcid:
+#date: "`r format(Sys.time(), '%B %Y')`"
+headcolor: 414141
+output: 
+  vitae::awesomecv:
+    page_total: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup,include=FALSE}
+knitr::opts_chunk$set(echo=FALSE,warning=FALSE,message=FALSE)
+library(vitae)
+library(here) #to simplify path/file referencing, can be excluded 
+```
+
+```{r functions}
+#import data
+readExcelSheets <- function(filepath){
+  #save filename for subsequent funct
+  filename <- here::here(filepath)
+  
+  #get names of all sheets in xlsx
+  sheet_names <- readxl::excel_sheets(filename) %>%
+    as.list()
+
+  #read + save everything into single list of df
+  temp_data <- lapply(sheet_names,function(x){
+    readxl::read_excel(filename,sheet=x) %>%
+      as.data.frame()
+  })
+
+  #add names to each df in list of df
+  names(temp_data) <- sheet_names
+  
+  #mandatory step to save data
+  return(temp_data)
+}
+
+#'filter all_data by sheet & include all filled cells under "include" col
+  #'to exclude a row, leave cell under "include" col empty
+select_sheet <- function(sheet){
+  all_data[[sheet]] %>% filter(!is.na(include))
+}
+```
+
+```{r import data,message=FALSE,results='hide'}
+#'import data
+  #'input name of reference excel file if here package is used
+  #'else, input path of reference excel file
+all_data <- readExcelSheets("vitae_data.xlsx") 
+
+sheet_names <- names(all_data) #for double-check purposes
+```
+
+# Education
+
+```{r education}
+select_sheet("education") %>%
+  detailed_entries(what=degree,
+                   when=year,
+                   with=institution,
+                   where=where,
+                   why=details)
+```
+
+# Clinical Experiences
+
+```{r clinical_exp}
+select_sheet("clinical") %>%
+  detailed_entries(what=role,
+                   when=dates,
+                   with=institution,
+                   where=where,
+                   why=details)
+```
+
+# Research Experiences
+
+```{r research_exp}
+select_sheet("research") %>%
+  detailed_entries(what=role,
+                   when=dates,
+                   with=institution,
+                   where=where,
+                   why=details)
+```
+
+# Non-clinical Experiences
+
+```{r non-clinical_exp}
+select_sheet("non-clinical") %>%
+  detailed_entries(what=role,
+                   when=dates,
+                   with=institution,
+                   where=where,
+                   why=details)
+```
+
+# Community Service
+
+```{r community_service}
+select_sheet("volunteer") %>%
+  detailed_entries(what=role,
+                   when=dates,
+                   with=institution,
+                   where=where,
+                   why=details)
+```
+
+# Awards
+
+- item 1
+- item 2
+- item 3
+
+# Skills
+
+- item 1
+- item 2
+- item 3
+
+\newpage
+
+# Abstracts
+
+```{r abstracts}
+select_sheet("abstracts") %>%
+  detailed_entries(what=title,
+                   when=dates,
+                   with=event,
+                   where=where,
+                   why=details)
+```
+
+# Presentations
+
+```{r presentations}
+select_sheet("presentations") %>%
+  detailed_entries(what=title,
+                   when=dates,
+                   with=event,
+                   where=where,
+                   why=details)
+```
+
+# Publications
+
+1. sample publication 1
+
+1. sample publication 2
+
+1. sample publication 3
