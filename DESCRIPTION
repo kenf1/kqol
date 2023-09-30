@@ -1,8 +1,8 @@
 Package: kqol
 Title: K's R Quality of Life Improvements
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: 
-    person("K", "F", , "kenfv1@outlook.com", role = c("aut", "cre"),
+    person("K", "F", , "github.com/kenf1", role = c("aut", "cre"),
            comment = c())
 Description: Time is money. I am efficient (aka lazy). Why not speed things up even more to boost productivity? This package is a collection of KF's custom functions & RMD templates.
 License: GPL-3.0 + file LICENSE
