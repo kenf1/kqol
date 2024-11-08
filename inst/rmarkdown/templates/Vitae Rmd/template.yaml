@@ -1,3 +1,0 @@
-name: Vitae Template
-description: KF's modified Vitae template for generating a curriculum vitae (CV) in pdf format. Relies on specific formatted .xlsx file.
-create_dir: false

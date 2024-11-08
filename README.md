@@ -4,12 +4,7 @@
 
 #### R package containing KF's frequently-used custom functions and templates.
 
-This package contains the following:
-
-1. Rmd Templates
-1. Custom functions
-
-For more infomation, visit the [kqol Documentation](https://vignettes.netlify.app/kqol) website.
+For more infomation, visit [kqol Documentation](https://vignettes.netlify.app/kqol).
 
 ### To install:
 

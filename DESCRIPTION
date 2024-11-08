@@ -1,9 +1,9 @@
 Package: kqol
 Title: K's R Quality of Life Improvements
-Version: 1.0.1
+Version: 1.1.0
 Authors@R: 
     person("K","github.com/kenf1",role=c("aut","cre"),email="mail@mail.com")
-Description: A collection of K's custom functions & RMD templates to boost productivity.
+Description: A collection of K's custom functions.
 License: GPL-3.0 + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
